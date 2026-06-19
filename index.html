@@ -202,11 +202,28 @@
             white-space: nowrap;
         }
 
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            gap: 0.4rem;
+            cursor: pointer;
+            background: none;
+            border: none;
+            padding: 0;
+        }
+
+        .hamburger span {
+            width: 24px;
+            height: 3px;
+            background: var(--ink);
+            border-radius: 2px;
+            transition: all 0.3s ease;
+        }
+
         @media (max-width: 768px) {
             .nav-container {
-                flex-direction: row;
                 gap: 0.5rem;
-                justify-content: space-between;
+                position: relative;
             }
 
             .nav-logo {
@@ -219,15 +236,33 @@
                 height: 1.25rem;
             }
 
+            .nav-links {
+                display: none !important;
+            }
+
+            .hamburger {
+                display: flex;
+            }
+
             .nav-cta {
-                padding: 0.65rem 1rem;
+                padding: 0.65rem 0.75rem;
                 font-size: 0.85rem;
                 white-space: nowrap;
+                margin-left: auto;
             }
 
             .nav-cta svg {
                 width: 1.2rem;
                 height: 1.2rem;
+                margin: 0;
+            }
+
+            .nav-cta span {
+                display: none;
+            }
+
+            #mobile-call {
+                display: flex !important;
             }
         }
 
@@ -1405,6 +1440,14 @@
                         Call
                     </a></li>
                 </ul>
+                <button class="hamburger" id="hamburger">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+                <a href="tel:+15082780001" class="btn btn-primary nav-cta" style="display: none;" id="mobile-call">
+                    <svg><use href="#i-phone"></use></svg>
+                </a>
             </div>
         </div>
     </nav>
@@ -2061,6 +2104,40 @@
     </footer>
 
     <script>
+        // Mobile hamburger menu
+        const hamburger = document.getElementById('hamburger');
+        const navLinks = document.querySelector('.nav-links');
+        const mobileCall = document.getElementById('mobile-call');
+
+        if (hamburger) {
+            hamburger.addEventListener('click', function() {
+                navLinks.style.display = navLinks.style.display === 'flex' ? 'none' : 'flex';
+                navLinks.style.position = 'absolute';
+                navLinks.style.top = '100%';
+                navLinks.style.left = '0';
+                navLinks.style.right = '0';
+                navLinks.style.flexDirection = 'column';
+                navLinks.style.backgroundColor = 'var(--white)';
+                navLinks.style.gap = '0';
+                navLinks.style.padding = '1rem';
+                navLinks.style.borderBottom = '1px solid var(--border)';
+                navLinks.style.zIndex = '98';
+
+                // Toggle hamburger animation
+                this.classList.toggle('active');
+            });
+        }
+
+        // Close menu when link clicked
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', function() {
+                if (navLinks) {
+                    navLinks.style.display = 'none';
+                    if (hamburger) hamburger.classList.remove('active');
+                }
+            });
+        });
+
         // Smooth scroll for navigation links
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
