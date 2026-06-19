@@ -281,6 +281,7 @@
             min-height: 100vh;
             display: flex;
             align-items: center;
+            padding-top: 100px;
             overflow: hidden;
         }
 
@@ -290,7 +291,7 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: url('https://images.unsplash.com/photo-1486262715619-67b85e0b08d3?w=1920&q=85') center/cover;
+            background: url('https://communityautorepairshop.com/wp-content/uploads/2021/12/DSC02018-scaled.jpg') center/cover;
             z-index: 0;
         }
 
@@ -301,33 +302,37 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: linear-gradient(135deg, rgba(26, 20, 16, 0.75) 0%, rgba(26, 20, 16, 0.5) 100%);
+            background: linear-gradient(135deg, rgba(26, 20, 16, 0.8) 0%, rgba(26, 20, 16, 0.4) 100%);
         }
 
         .hero-content {
             position: relative;
             z-index: 1;
             width: 100%;
-            padding: 2rem;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: center;
         }
 
         .hero-text {
-            max-width: 600px;
+            max-width: 550px;
             color: var(--white);
-            margin-bottom: 2rem;
             animation: fadeInUp 1s ease;
         }
 
         .hero-text h1 {
             color: var(--white);
-            margin-bottom: 1rem;
+            margin-bottom: 1.5rem;
             font-weight: 900;
+            line-height: 1.1;
         }
 
         .hero-text p {
-            color: rgba(255, 255, 255, 0.9);
-            font-size: 1.2rem;
-            margin-bottom: 0.5rem;
+            color: rgba(255, 255, 255, 0.95);
+            font-size: 1.1rem;
+            margin-bottom: 0.75rem;
+            line-height: 1.6;
         }
 
         .hero-buttons {
@@ -338,21 +343,19 @@
         }
 
         .hero-info-card {
-            position: absolute;
-            bottom: 3rem;
-            right: 2rem;
             background: var(--white);
-            padding: 1.5rem;
-            border-radius: 0.75rem;
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
-            max-width: 300px;
+            padding: 2rem;
+            border-radius: 1rem;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.25);
             animation: slideInRight 1s ease;
+            height: fit-content;
         }
 
         .hero-info-item {
             display: flex;
             gap: 1rem;
-            margin-bottom: 1rem;
+            margin-bottom: 1.5rem;
+            align-items: flex-start;
         }
 
         .hero-info-item:last-child {
@@ -362,18 +365,22 @@
         .hero-info-item svg {
             color: var(--orange);
             flex-shrink: 0;
+            width: 2rem;
+            height: 2rem;
+            margin-top: 0.25rem;
         }
 
         .hero-info-item strong {
             display: block;
             color: var(--ink);
             font-weight: 700;
+            font-size: 1.05rem;
         }
 
         .hero-info-item p {
             font-size: 0.9rem;
             color: var(--mid);
-            margin: 0.25rem 0 0 0;
+            margin: 0.35rem 0 0 0;
         }
 
         @keyframes fadeInUp {
@@ -398,18 +405,29 @@
             }
         }
 
+        @media (max-width: 1024px) {
+            .hero-content {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .hero-info-card {
+                max-width: 100%;
+            }
+        }
+
         @media (max-width: 768px) {
             .hero {
                 min-height: 80vh;
                 padding-top: 50px;
             }
 
-            .hero-info-card {
-                position: relative;
-                bottom: auto;
-                right: auto;
-                margin-top: 2rem;
-                max-width: 100%;
+            .hero-content {
+                grid-template-columns: 1fr;
+            }
+
+            .hero-text h1 {
+                font-size: 2.5rem;
             }
 
             .hero-buttons {
@@ -419,6 +437,10 @@
             .btn {
                 width: 100%;
                 justify-content: center;
+            }
+
+            .hero-info-card {
+                margin-top: 1rem;
             }
         }
 
@@ -740,7 +762,7 @@
         }
 
         .about-image {
-            background: url('https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=600&q=85') center/cover;
+            background: url('https://images.unsplash.com/photo-1625047509248-ec889cbff17f?w=600&q=85') center/cover;
             border-radius: 0.75rem;
             min-height: 400px;
             box-shadow: 0 16px 32px rgba(0, 0, 0, 0.1);
