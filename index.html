@@ -155,7 +155,7 @@
             position: sticky;
             top: 0;
             z-index: 99;
-            padding: 1rem 0;
+            padding: 0.75rem 0;
         }
 
         .nav-container {
@@ -221,14 +221,18 @@
         }
 
         @media (max-width: 768px) {
+            nav {
+                padding: 0.5rem 0;
+            }
+
             .nav-container {
-                gap: 0.5rem;
+                gap: 0;
                 position: relative;
+                justify-content: space-between;
             }
 
             .nav-logo {
-                font-size: 1rem;
-                flex: 1;
+                display: none;
             }
 
             .nav-logo svg {
@@ -241,28 +245,24 @@
             }
 
             .hamburger {
-                display: flex;
+                display: none;
             }
 
             .nav-cta {
-                padding: 0.65rem 0.75rem;
-                font-size: 0.85rem;
+                padding: 0.5rem 1rem;
+                font-size: 0.8rem;
                 white-space: nowrap;
                 margin-left: auto;
             }
 
             .nav-cta svg {
-                width: 1.2rem;
-                height: 1.2rem;
-                margin: 0;
-            }
-
-            .nav-cta span {
-                display: none;
+                width: 1rem;
+                height: 1rem;
             }
 
             #mobile-call {
                 display: flex !important;
+                padding: 0.5rem 1rem;
             }
         }
 
@@ -1440,11 +1440,6 @@
                         Call
                     </a></li>
                 </ul>
-                <button class="hamburger" id="hamburger">
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                </button>
                 <a href="tel:+15082780001" class="btn btn-primary nav-cta" style="display: none;" id="mobile-call">
                     <svg><use href="#i-phone"></use></svg>
                 </a>
